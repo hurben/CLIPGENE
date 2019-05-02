@@ -1,0 +1,117 @@
+[MANUAL] CAFF-GENE-BEST PROCESS STEP
+
+Python 2 & 3 is required.
+
+
+== STEP 1 ==
+
+CAFF_gene.py
+
+Executable in python 2
+
+
+INPUT : DEG list, SNV rate file
+OUTPUT : Gene list
+
+
+Argument explanation :
+
+	-i , --input : A list of genes that represents DEGs
+
+	-t , --topology : Specify certain gene regulatory network (GRN) to use. User can provide their own gene regulatory network. If user cannot provide GRN, please use /bin/mmu10_normal_sample.topology'
+
+	-p , --pathway : Specify certain pathway to use. Currently, we support KEGG pathway and STRING DB
+
+	-s , --snv : SNV rate file. Details of SNV rate file could be gain in 'http://epigenomics.snu.ac.kr/CAFF-GENE-BEST/manual.php'
+
+	-r , --snv_rate : Define certain SNV rate to exclude. Default is 2
+
+	-o , --output : Define output name. with default the result will be saved as CAFF_GENE.out
+
+
+
+
+
+== STEP 2 ==
+
+BEST_api.py
+
+Executable in python 3
+
+
+INPUT : result from CAFF_gene.py
+OUTPUt : A gene table with initial ranking score
+
+
+
+Argument explanation :
+
+	-i , --input : A list of genes resulted from CAFF_gene.py
+
+	-c , --context : A context in interest. The context is used for ranking genes in user's interest.
+	
+	-ko , --knockout : Knockout gene symbol of your data. Correct gene symbol is essential.
+
+	-o , --output : Define output name. with default the result will be saved as CAFF_GENE_BEST.initial.result
+
+
+
+== STEP 3 ==
+
+Final_ranking.py
+
+Executable in python 2
+
+
+INPUT : result from BEST_api.py
+OUTPUt : gene lists with final ranking score
+
+
+
+Argument explanation :
+
+	-i , --input : A table resulted from BEST_api.py
+
+	-g , --gene : Knockout gene symbol of your data. Correct gene symbol is essential.
+
+	-o , --output : Define output name. with default the result will be saved as CAFF_GENE_BEST.final.result
+
+
+
+
+
+== QUICK DEFAULT RUN ==
+
+CAFF-GENE-BEST_default.py
+
+Executable in python 2
+
+
+
+
+Argument explanation :
+
+	-i , --input : A list of genes that represent DEGs.
+
+	-s , --snv : SNV rate file. Details of SNV rate file could be gain in 'http://epigenomics.snu.ac.kr/CAFF-GENE-BEST/manual.php'
+
+	-ko , --knockout : Knockout gene symbol of your data. Correct gene symbol is essential.
+
+	-c , --context : A context in interest. The context is used for ranking genes in user's interest.
+
+
+Example ) python CAFF-GENE-BEST_default.py -i DEG.txt -s gata3.snv.rate.txt -ko Gata3 -c Immune_regulation
+
+
+IMPORTANT NOTE :
+
+python2 alias needs to be defined as python
+python3 alias needs to be defined as python3
+
+if not, manual script modification is required.
+
+
+Please modify the directory of your own python2 & 3 in the script.
+
+Line number 44, 56, 59, 68, 70
+

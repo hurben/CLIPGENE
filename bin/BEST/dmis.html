@@ -1,0 +1,654 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>dmis package &mdash; dmis  documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="dmis  documentation" href="index.html" />
+    <link rel="prev" title="Welcome to dmis’s documentation!" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to dmis’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">dmis  documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="dmis-package">
+<h1>dmis package<a class="headerlink" href="#dmis-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-dmis.berex">
+<span id="dmis-berex-module"></span><h2>dmis.berex module<a class="headerlink" href="#module-dmis.berex" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-dmis.berex"></span><div class="section" id="biomedical-entity-network-query-api">
+<h3>Biomedical entity network query API<a class="headerlink" href="#biomedical-entity-network-query-api" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Usage: Biomedical entity network query API</p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">dmis</span> <span class="kn">import</span> <span class="n">berex</span>
+<span class="gp">&gt;&gt;&gt; </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">berexQuery</span> <span class="o">=</span> <span class="n">berex</span><span class="o">.</span><span class="n">BEReXQuery</span><span class="p">({</span><span class="s">&quot;keywordA&quot;</span><span class="p">:[</span><span class="s">&quot;chronic myeloid leukemia&quot;</span><span class="p">],</span> <span class="s">&quot;keywordB&quot;</span><span class="p">:[</span><span class="s">&quot;ABL1&quot;</span><span class="p">,</span> <span class="s">&quot;imatinib&quot;</span><span class="p">],</span> <span class="s">&quot;mode&quot;</span><span class="p">:</span><span class="s">&quot;subnet&quot;</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">relevantRelations</span> <span class="o">=</span> <span class="n">getRelevantBioRelations</span><span class="p">(</span><span class="n">berexQuery</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">relevantRelations</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="dmis.berex.BEReXQuery">
+<em class="property">class </em><tt class="descclassname">dmis.berex.</tt><tt class="descname">BEReXQuery</tt><big>(</big><em>queryObj={'keywordB':</em>, <span class="optional">[</span><span class="optional">]</span><em>'keywordA':</em>, <span class="optional">[</span><span class="optional">]</span><em>'mode': 1}</em><big>)</big><a class="headerlink" href="#dmis.berex.BEReXQuery" title="Permalink to this definition">¶</a></dt>
+<dd><p>dmis.BEReXQuery class is basic query object for BEReX API.</p>
+<dl class="method">
+<dt id="dmis.berex.BEReXQuery.addKeywordtoA">
+<tt class="descname">addKeywordtoA</tt><big>(</big><em>keyword</em><big>)</big><a class="headerlink" href="#dmis.berex.BEReXQuery.addKeywordtoA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding a keyword to the primary keyword list (Keyword A)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keyword</strong> &#8211; the keyword to be added to the primary keyword list</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordA</span><span class="p">())</span>
+<span class="go">[&#39;chronic myeloid leukemia&#39;, &#39;BCR&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">query</span><span class="o">.</span><span class="n">addKeywordtoA</span><span class="p">(</span><span class="s">&quot;EGFR&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordA</span><span class="p">())</span>
+<span class="go">[&#39;chronic myeloid leukemia&#39;, &#39;BCR&#39;, &quot;EGFR&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.berex.BEReXQuery.addKeywordtoB">
+<tt class="descname">addKeywordtoB</tt><big>(</big><em>keyword</em><big>)</big><a class="headerlink" href="#dmis.berex.BEReXQuery.addKeywordtoB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding a keyword to the secondary keyword list (Keyword B)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keyword</strong> &#8211; the keyword to be added to the secondary keyword list</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordB</span><span class="p">())</span>
+<span class="go">[&#39;ABL1&#39;, &#39;imatinib&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">query</span><span class="o">.</span><span class="n">addKeywordtoB</span><span class="p">(</span><span class="s">&quot;EGFR&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordB</span><span class="p">())</span>
+<span class="go">[&#39;ABL1&#39;, &#39;imatinib&#39;, &#39;EGFR&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.berex.BEReXQuery.getKeywordA">
+<tt class="descname">getKeywordA</tt><big>(</big><big>)</big><a class="headerlink" href="#dmis.berex.BEReXQuery.getKeywordA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getting the primary keyword (Keyword A)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">keyword A list</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">keywordA</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">getKeywordA</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">keywordA</span><span class="p">)</span>
+<span class="go">[&#39;chronic myeloid leukemia&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.berex.BEReXQuery.getKeywordB">
+<tt class="descname">getKeywordB</tt><big>(</big><big>)</big><a class="headerlink" href="#dmis.berex.BEReXQuery.getKeywordB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getting the secondary keywords (Keyword B)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of keyword B string</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">keywordB</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">getKeywordB</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">keywordB</span><span class="p">)</span>
+<span class="go">[&#39;ABL1&#39;, &#39;imatinib&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.berex.BEReXQuery.getMode">
+<tt class="descname">getMode</tt><big>(</big><big>)</big><a class="headerlink" href="#dmis.berex.BEReXQuery.getMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getting the searching mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the searching mode</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getMode</span><span class="p">())</span>
+<span class="go">subnet</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.berex.BEReXQuery.removeKeywordfromA">
+<tt class="descname">removeKeywordfromA</tt><big>(</big><em>keyword</em><big>)</big><a class="headerlink" href="#dmis.berex.BEReXQuery.removeKeywordfromA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removing a keyword from the primary keyword list (Keyword A)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keyword</strong> &#8211; the keyword to be removed from the primary keyword list</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordA</span><span class="p">())</span>
+<span class="go">[&#39;chronic myeloid leukemia&#39;, &#39;BCR&#39;, &#39;EGFR&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">query</span><span class="o">.</span><span class="n">removeKeywordfromA</span><span class="p">(</span><span class="s">&quot;EGFR&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordA</span><span class="p">())</span>
+<span class="go">[&#39;chronic myeloid leukemia&#39;, &#39;BCR&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.berex.BEReXQuery.removeKeywordfromB">
+<tt class="descname">removeKeywordfromB</tt><big>(</big><em>keyword</em><big>)</big><a class="headerlink" href="#dmis.berex.BEReXQuery.removeKeywordfromB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removing a keyword from the secondary keyword list (Keyword B)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keyword</strong> &#8211; the keyword to be removed from the secondary keyword list</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordB</span><span class="p">())</span>
+<span class="go">[&#39;ABL1&#39;, &#39;imatinib&#39;, &#39;EGFR&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">query</span><span class="o">.</span><span class="n">removeKeywordfromB</span><span class="p">(</span><span class="s">&quot;EGFR&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordB</span><span class="p">())</span>
+<span class="go">[&#39;ABL1&#39;, &#39;imatinib&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.berex.BEReXQuery.setKeywordA">
+<tt class="descname">setKeywordA</tt><big>(</big><em>keywords</em><big>)</big><a class="headerlink" href="#dmis.berex.BEReXQuery.setKeywordA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting the primary keywords (Keyword A)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keyword</strong> &#8211; primary keywords, which must be a list of str</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">query</span><span class="o">.</span><span class="n">setKeywordA</span><span class="p">([</span><span class="s">&quot;cancer&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.berex.BEReXQuery.setKeywordB">
+<tt class="descname">setKeywordB</tt><big>(</big><em>keywords</em><big>)</big><a class="headerlink" href="#dmis.berex.BEReXQuery.setKeywordB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting the secondary keywords (Keyword B)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keywords</strong> &#8211; the secondary keywords, which must be a list of str</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">keywordB</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;ABL1&quot;</span><span class="p">,</span> <span class="s">&quot;imatinib&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">query</span><span class="o">.</span><span class="n">setKeywordB</span><span class="p">(</span><span class="n">keywordB</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.berex.BEReXQuery.setMode">
+<tt class="descname">setMode</tt><big>(</big><em>mode</em><big>)</big><a class="headerlink" href="#dmis.berex.BEReXQuery.setMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting a searching mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> &#8211; searching mode. This should be either &#8220;subnet&#8221; or &#8220;GOTerms&#8221;</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">query</span><span class="o">.</span><span class="n">setMode</span><span class="p">(</span><span class="s">&quot;subnet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="dmis.berex.getRelevantBioRelations">
+<tt class="descclassname">dmis.berex.</tt><tt class="descname">getRelevantBioRelations</tt><big>(</big><em>berexQuery</em><big>)</big><a class="headerlink" href="#dmis.berex.getRelevantBioRelations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function for retrieval from BOSS</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>berexQuery</strong> &#8211; BEReXQuery</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">subnetwork object (mode &#8220;subnet&#8221;) or list of enriched GO terms (mode &#8220;GOTerms&#8221;)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><dl class="first docutils">
+<dt>subnetwork object (list): [BIO_EDGE]</dt>
+<dd><ul class="first last simple">
+<li>BIO_EDGE: {&#8220;source&#8221;:str, &#8220;target&#8221;:str, &#8220;dbsource&#8221;:str, &#8220;interaction&#8221;:str, &#8220;reference&#8221;:str}</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">list of GO terms (object): {&#8220;biological process&#8221;:[str], &#8220;molecular function&#8221;:[str], &#8220;cellular component&#8221;:[str]}</p>
+</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">berexQuery</span> <span class="o">=</span> <span class="n">BEReXQuery</span><span class="p">({</span><span class="s">&quot;keywordA&quot;</span><span class="p">:[</span><span class="s">&quot;chronic myeloid leukemia&quot;</span><span class="p">],</span> <span class="s">&quot;keywordB&quot;</span><span class="p">:[</span><span class="s">&quot;ABL1&quot;</span><span class="p">,</span> <span class="s">&quot;imatinib&quot;</span><span class="p">],</span> <span class="s">&quot;mode&quot;</span><span class="p">:</span><span class="s">&quot;subnet&quot;</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">relevantRelations</span> <span class="o">=</span> <span class="n">getRelevantBioRelations</span><span class="p">(</span><span class="n">bossQuery</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-dmis.boss">
+<span id="dmis-boss-module"></span><h2>dmis.boss module<a class="headerlink" href="#module-dmis.boss" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-dmis.boss"></span><div class="section" id="biomedical-entity-query-api">
+<h3>Biomedical entity query API<a class="headerlink" href="#biomedical-entity-query-api" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Usage: Biomedical entity query API</p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">dmis</span> <span class="kn">import</span> <span class="n">boss</span>
+<span class="gp">&gt;&gt;&gt; </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bossQuery</span> <span class="o">=</span> <span class="n">boss</span><span class="o">.</span><span class="n">BOSSQuery</span><span class="p">({</span><span class="s">&quot;keywordA&quot;</span><span class="p">:[</span><span class="s">&quot;cancer&quot;</span><span class="p">],</span> <span class="s">&quot;keywordB&quot;</span><span class="p">:[</span><span class="s">&quot;BRCA1&quot;</span><span class="p">,</span> <span class="s">&quot;EGFR&quot;</span><span class="p">],</span> <span class="s">&quot;filterObjectName&quot;</span><span class="p">:</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="s">&quot;topN&quot;</span><span class="p">:</span><span class="mi">30</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bossQuery</span><span class="o">.</span><span class="n">addKeywordtoB</span><span class="p">(</span><span class="s">&quot;TP53&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">relevantEntities</span> <span class="o">=</span> <span class="n">boss</span><span class="o">.</span><span class="n">getRelevantBioEntities</span><span class="p">(</span><span class="n">bossQuery</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">relevantEntities</span><span class="p">)</span>
+<span class="go">{&#39;diseases&#39;: [{&#39;abstracts&#39;: [&#39;A distinctive feature ...&#39;,</span>
+<span class="go">                             &#39;The excess risk of ...&#39;,</span>
+<span class="go">                             &#39;Many important ...&#39;],</span>
+<span class="go">               &#39;entityName&#39;: &#39;breast neoplasms&#39;,</span>
+<span class="go">               &#39;numArticles&#39;: 147184,</span>
+<span class="go">               &#39;rank&#39;: 1,</span>
+<span class="go">               &#39;score&#39;: 327993.0},</span>
+<span class="go">              {&#39;abstracts&#39;: [&quot;The relationship ...&quot;,</span>
+<span class="go">                             &#39;Relatively little ...&#39;,</span>
+<span class="go">                             &#39;Strong inter- and ...&#39;],</span>
+<span class="go">               &#39;entityName&#39;: &#39;ovarian neoplasms&#39;,</span>
+<span class="go">               &#39;numArticles&#39;: 5526,</span>
+<span class="go">               &#39;rank&#39;: 2,</span>
+<span class="go">               &#39;score&#39;: 13530.978},</span>
+<span class="gp">...</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="dmis.boss.BOSSQuery">
+<em class="property">class </em><tt class="descclassname">dmis.boss.</tt><tt class="descname">BOSSQuery</tt><big>(</big><em>queryObj={'keywordB':</em>, <span class="optional">[</span><span class="optional">]</span><em>'keywordA': ''</em>, <em>'filterObjectName': ''</em>, <em>'topN': 20}</em><big>)</big><a class="headerlink" href="#dmis.boss.BOSSQuery" title="Permalink to this definition">¶</a></dt>
+<dd><p>dmis.BOSSQuery class is basic query object for BOSS API.</p>
+<dl class="method">
+<dt id="dmis.boss.BOSSQuery.addKeywordtoA">
+<tt class="descname">addKeywordtoA</tt><big>(</big><em>keyword</em><big>)</big><a class="headerlink" href="#dmis.boss.BOSSQuery.addKeywordtoA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding a keyword to the primary keyword list (Keyword A)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keyword</strong> &#8211; the keyword to be added to the primary keyword list</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordA</span><span class="p">())</span>
+<span class="go">[&quot;cancer&quot;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">query</span><span class="o">.</span><span class="n">addKeywordtoA</span><span class="p">(</span><span class="s">&quot;EGFR&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordA</span><span class="p">())</span>
+<span class="go">[&quot;cancer&quot;,&quot;EGFR&quot;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.boss.BOSSQuery.addKeywordtoB">
+<tt class="descname">addKeywordtoB</tt><big>(</big><em>keyword</em><big>)</big><a class="headerlink" href="#dmis.boss.BOSSQuery.addKeywordtoB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding a keyword to the secondary keyword list (Keyword B)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keyword</strong> &#8211; the keyword to be added to the secondary keyword list</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordB</span><span class="p">())</span>
+<span class="go">[&quot;breast cancer&quot;,&quot;BRCA1&quot;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">query</span><span class="o">.</span><span class="n">addKeywordtoB</span><span class="p">(</span><span class="s">&quot;EGFR&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordB</span><span class="p">())</span>
+<span class="go">[&quot;breast cancer&quot;,&quot;BRCA1&quot;,&quot;EGFR&quot;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.boss.BOSSQuery.getFilterObjectName">
+<tt class="descname">getFilterObjectName</tt><big>(</big><big>)</big><a class="headerlink" href="#dmis.boss.BOSSQuery.getFilterObjectName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getting the filtering object. Gene name is case-sensitive.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getFilterObjectName</span><span class="p">())</span>
+<span class="go">&quot;breast cancer&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.boss.BOSSQuery.getKeywordA">
+<tt class="descname">getKeywordA</tt><big>(</big><big>)</big><a class="headerlink" href="#dmis.boss.BOSSQuery.getKeywordA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getting the primary keyword (Keyword A)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">keyword A string</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">keywordA</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">getKeywordA</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">keywordA</span><span class="p">)</span>
+<span class="go">[&quot;cancer&quot;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.boss.BOSSQuery.getKeywordB">
+<tt class="descname">getKeywordB</tt><big>(</big><big>)</big><a class="headerlink" href="#dmis.boss.BOSSQuery.getKeywordB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getting the secondary keywords (Keyword B)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of keyword B string</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">keywordB</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">getKeywordB</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">keywordB</span><span class="p">)</span>
+<span class="go">[&quot;breast cancer&quot;,&quot;BRCA1&quot;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.boss.BOSSQuery.getTopN">
+<tt class="descname">getTopN</tt><big>(</big><big>)</big><a class="headerlink" href="#dmis.boss.BOSSQuery.getTopN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getting the number of results retrieved by query</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of results to be retrieved</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getTopN</span><span class="p">())</span>
+<span class="go">100</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.boss.BOSSQuery.removeKeywordfromA">
+<tt class="descname">removeKeywordfromA</tt><big>(</big><em>keyword</em><big>)</big><a class="headerlink" href="#dmis.boss.BOSSQuery.removeKeywordfromA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removing a keyword from the primary keyword list (Keyword A)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keyword</strong> &#8211; the keyword to be removed from the primary keyword list</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordA</span><span class="p">())</span>
+<span class="go">[&quot;cancer&quot;,&quot;EGFR&quot;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">query</span><span class="o">.</span><span class="n">removeKeywordfromA</span><span class="p">(</span><span class="s">&quot;EGFR&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordA</span><span class="p">())</span>
+<span class="go">[&quot;cancer&quot;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.boss.BOSSQuery.removeKeywordfromB">
+<tt class="descname">removeKeywordfromB</tt><big>(</big><em>keyword</em><big>)</big><a class="headerlink" href="#dmis.boss.BOSSQuery.removeKeywordfromB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removing a keyword from the secondary keyword list (Keyword B)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keyword</strong> &#8211; the keyword to be removed from the secondary keyword list</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordB</span><span class="p">())</span>
+<span class="go">[&quot;breast cancer&quot;,&quot;BRCA1&quot;,&quot;EGFR&quot;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">query</span><span class="o">.</span><span class="n">removeKeywordfromB</span><span class="p">(</span><span class="s">&quot;EGFR&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">getKeywordB</span><span class="p">())</span>
+<span class="go">[&quot;breast cancer&quot;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.boss.BOSSQuery.setFilterObjectName">
+<tt class="descname">setFilterObjectName</tt><big>(</big><em>oname</em><big>)</big><a class="headerlink" href="#dmis.boss.BOSSQuery.setFilterObjectName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting the filtering object. Gene name is case-sensitive.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">qeury</span><span class="o">.</span><span class="n">setFilterObjectName</span><span class="p">(</span><span class="s">&quot;breast cancer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.boss.BOSSQuery.setKeywordA">
+<tt class="descname">setKeywordA</tt><big>(</big><em>keywords</em><big>)</big><a class="headerlink" href="#dmis.boss.BOSSQuery.setKeywordA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting the primary keywords (Keyword A)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keyword</strong> &#8211; primary keywords, which must be a list of str</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">query</span><span class="o">.</span><span class="n">setKeywordA</span><span class="p">([</span><span class="s">&quot;cancer&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.boss.BOSSQuery.setKeywordB">
+<tt class="descname">setKeywordB</tt><big>(</big><em>keywords</em><big>)</big><a class="headerlink" href="#dmis.boss.BOSSQuery.setKeywordB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting the secondary keywords (Keyword B)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keywords</strong> &#8211; the secondary keywords, which must be a list of str</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">keywordB</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;breast cancer&quot;</span><span class="p">,</span><span class="s">&quot;BRCA1&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">query</span><span class="o">.</span><span class="n">setKeywordB</span><span class="p">(</span><span class="n">keywordB</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmis.boss.BOSSQuery.setTopN">
+<tt class="descname">setTopN</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#dmis.boss.BOSSQuery.setTopN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting the number of results retrieved by query</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>n</strong> &#8211; the number of results to be retrieved</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">query</span><span class="o">.</span><span class="n">setTopN</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="dmis.boss.getRelevantBioEntities">
+<tt class="descclassname">dmis.boss.</tt><tt class="descname">getRelevantBioEntities</tt><big>(</big><em>bossQuery</em><big>)</big><a class="headerlink" href="#dmis.boss.getRelevantBioEntities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function for retrieval from BOSS</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bossQuery</strong> &#8211; BOSSQuery</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">parsed objects (dict-ENTITY_SET).</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>ENTITY_SET (dict): {&#8220;queryResult&#8221;:QUERY_RESULT, &#8220;queryObject&#8221;:QUERY_OBJECT, genes&#8221;:[BIOENTITY] , &#8220;pathways&#8221;:[BIOENTITY], &#8220;diseases&#8221;:[BIOENTITY]}</li>
+<li>BIOENTITY (dict): {&#8220;rank&#8221;:int, &#8220;score&#8221;:float, &#8220;numArticles&#8221;:int, &#8220;abstracts&#8221;:[str]}</li>
+<li>QUERY_RESULT (string): [success - non-filtered | success - invalid filter | success - filtered]</li>
+<li>QUERY_OBJECT (dict): Instance of class BOSSQuery</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bossQuery</span> <span class="o">=</span> <span class="n">BOSSQuery</span><span class="p">({</span><span class="s">&quot;keywordA&quot;</span><span class="p">:</span><span class="s">&quot;cancer&quot;</span><span class="p">,</span> <span class="s">&quot;keywordB&quot;</span><span class="p">:[</span><span class="s">&quot;breast cancer&quot;</span><span class="p">,</span><span class="s">&quot;BRCA1&quot;</span><span class="p">],</span> <span class="s">&quot;filterObjectName&quot;</span><span class="p">:</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="s">&quot;topN&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">relevantEntities</span> <span class="o">=</span> <span class="n">getRelevantBioEntities</span><span class="p">(</span><span class="n">bossQuery</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-dmis">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-dmis" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">dmis package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-dmis.berex">dmis.berex module</a><ul>
+<li><a class="reference internal" href="#biomedical-entity-network-query-api">Biomedical entity network query API</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dmis.boss">dmis.boss module</a><ul>
+<li><a class="reference internal" href="#biomedical-entity-query-api">Biomedical entity query API</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dmis">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to dmis&#8217;s documentation!</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/dmis.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to dmis’s documentation!"
+             >previous</a> |</li>
+        <li><a href="index.html">dmis  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, DMIS.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+dmis package
+============
+
+Submodules
+----------
+
+dmis.berex module
+-----------------
+
+.. automodule:: dmis.berex
+    :members:
+    :show-inheritance:
+
+dmis.boss module
+----------------
+
+.. automodule:: dmis.boss
+    :members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: dmis
+    :members:
+    :show-inheritance:
